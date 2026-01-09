@@ -32,8 +32,13 @@ pipeline {
         }
         stage('deploy'){
             steps{
-                echo "dowing all prev containes..."
-                sh "docker compose down"
+                echo "downing all prev containes..."
+                sh '''
+                export PATH=/usr/local/bin:/opt/homebrew/bin:$PATH
+                echo "PATH is: $PATH"
+                docker compose down
+                '''
+                echo "all services are down...."
                 script{
                     deploy()
                 }
