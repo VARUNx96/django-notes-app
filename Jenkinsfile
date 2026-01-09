@@ -32,6 +32,7 @@ pipeline {
         }
         stage('deploy'){
             steps{
+                echo "dowing all prev containes..."
                 sh "docker compose down"
                 script{
                     deploy()
