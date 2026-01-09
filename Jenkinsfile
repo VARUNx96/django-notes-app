@@ -39,6 +39,7 @@ pipeline {
                 docker compose down
                 '''
                 echo "all services are down...."
+                ehco "now re deploying again to all services up...."
                 script{
                     deploy()
                 }
